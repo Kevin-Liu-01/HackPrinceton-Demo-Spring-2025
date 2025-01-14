@@ -29,15 +29,9 @@ dependencies:
   react:
     specifier: ^18
     version: 18.3.1
-  react-curved-text:
-    specifier: ^3.0.1
-    version: 3.0.1(react-dom@18.3.1)(react@18.3.1)
   react-dom:
     specifier: ^18
     version: 18.3.1(react@18.3.1)
-  react-mdr:
-    specifier: ^0.1.5
-    version: 0.1.5(react-dom@18.3.1)(react@18.3.1)
   three:
     specifier: ^0.172.0
     version: 0.172.0
@@ -2353,11 +2347,6 @@ packages:
       esutils: 2.0.3
     dev: true
 
-  /dommatrix@1.0.3:
-    resolution: {integrity: sha512-l32Xp/TLgWb8ReqbVJAFIvXmY7go4nTxxlWiAFyhoQw9RKEOHBZNnyGvJWqDVSPmq3Y9HlM4npqF/T6VMOXhww==}
-    deprecated: dommatrix is no longer maintained. Please use @thednp/dommatrix.
-    dev: false
-
   /draco3d@1.5.7:
     resolution: {integrity: sha512-m6WCKt/erDXcw+70IJXnG7M3awwQPAsZvJGX5zY7beBqpELw6RDGkYVU0W43AFxye4pDZ5i2Lbyc/NNGqwjUVQ==}
     dev: false
@@ -3930,17 +3919,6 @@ packages:
       react: 18.3.1
     dev: false
 
-  /react-curved-text@3.0.1(react-dom@18.3.1)(react@18.3.1):
-    resolution: {integrity: sha512-tHRDAfiVa8bVMTadRdHfGoO/PjPgLF42RODAWoQlc2PNnwTDBh0hbSAZtNiNSmd8C3gB2d0rlNd841UXb0/rTQ==}
-    peerDependencies:
-      react: '>=18.0.0'
-      react-dom: '>=18.0.0'
-    dependencies:
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
-      svg-path-commander: 1.0.5
-    dev: false
-
   /react-dom@18.3.1(react@18.3.1):
     resolution: {integrity: sha512-5m4nQKp+rZRb09LNH59GM4BxTh9251/ylbKIbpe7TpGxfJ+9kv6BLkLBXIjjspbgbnIBNqlI23tRnTWT0snUIw==}
     peerDependencies:
@@ -3953,17 +3931,6 @@ packages:
 
   /react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
-
-  /react-mdr@0.1.5(react-dom@18.3.1)(react@18.3.1):
-    resolution: {integrity: sha512-KOIxi/ThzUhvniWOvpV9dkore5CL05tbFQPK7U4GKZu2WlzRp+FAdgXgr+NF7hZVmkb35Yf3NMUObbtMoB9ZRQ==}
-    peerDependencies:
-      react: '>=17.0.1'
-      react-dom: '>=17.0.1'
-    dependencies:
-      '@babel/runtime': 7.25.6
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
-    dev: false
 
   /react-reconciler@0.27.0(react@18.3.1):
     resolution: {integrity: sha512-HmMDKciQjYmBRGuuhIaKA1ba/7a+UsM5FzOZsMO2JYHt9Jh8reCb7j1eDC95NOyUlKM9KRyvdx0flBuDvYSBoA==}
@@ -4395,12 +4362,6 @@ packages:
       react: '>=17.0'
     dependencies:
       react: 18.3.1
-    dev: false
-
-  /svg-path-commander@1.0.5:
-    resolution: {integrity: sha512-hhQfARVXoPrwwe4DNPWM4hjQLK7rTxwQ+TUc5mxoe5g0k5eStc4SPnKqmivlm/dzZ98bI+yDyKye92n2t+oOiQ==}
-    dependencies:
-      dommatrix: 1.0.3
     dev: false
 
   /tailwindcss@3.4.13:
