@@ -10,10 +10,10 @@ const About = () => {
         id="about"
         className="text-retroWhite h-full grid grid-cols-1 sm:grid-cols-2 sm:max-w-6xl sm:mx-auto w-full"
       >
-        <Flex direction="column" justify="center" className="p-4 py-8">
+        <Flex direction="column" justify="center" className="px-8 py-12">
           <Flex
             direction="column"
-            className="text-start text-3xl sm:text-5xl font-extrabold gap-4"
+            className="text-start text-3xl mb-[-1rem] sm:text-5xl font-extrabold gap-6"
           >
             <span className="font-extrabold w-min whitespace-nowrap text-sm border-2 border-retroWhite rounded-xl p-2">
               ABOUT
@@ -23,7 +23,7 @@ const About = () => {
           <Flex
             direction="column"
             gap="4"
-            className="text-xs mr-4 sm:text-base"
+            className="text-xs mr-4  sm:text-base"
           >
             <Text>
               {"At HackPrinceton, you'll meet "}

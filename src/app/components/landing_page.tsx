@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { Flex } from "@radix-ui/themes";
-import Checkerboard from "../checkerboard";
 
 const LandingPage = () => {
   const [showSmoke, setShowSmoke] = useState(false);
@@ -18,7 +17,7 @@ const LandingPage = () => {
   return (
     <Flex className="relative w-full pt-[5.5rem] h-screen bg-retroBlue text-white flex-col overflow-hidden">
       {/* Top half: RetroHacks Logo and Text */}
-      <Flex className="relative flex-col h-full w-full text-center">
+      <Flex className="z-10 relative flex-col h-full w-full text-center">
         <div
           className="mt-6 w-full h-4 bg-repeat-x"
           style={{
@@ -37,13 +36,26 @@ const LandingPage = () => {
             <img
               src="/images/retrohacks_images/retrohackslogo.png"
               alt="Hack Princeton"
-              className="relative flex max-w-[500px] mx-auto z-20"
+              className="relative flex max-w-[500px] mx-auto z-30"
             />
             <div className="absolute h-3 z-10 bg-retroRed w-full"></div>
             <p className="mt-[-1rem] font-semibold text-lg sm:text-2xl text-retroWhite">
               spring 2025
             </p>
           </div>
+          <motion.img
+            src="/images/retrohacks_images/retrohacks_signboard.png"
+            alt="Signboard"
+            className="absolute bottom-[-2rem] z-20 left-[10%] w-32 lg:w-48 xl:w-64"
+            animate={{
+              rotate: [0, -10, 10, -10, 0], // Wobble back and forth
+            }}
+            transition={{
+              duration: 8, // Duration of one full wobble cycle
+              repeat: Infinity, // Repeat forever
+              ease: "easeInOut",
+            }}
+          />
         </motion.div>
         <div
           className="w-full h-4 bg-repeat-x"
@@ -54,8 +66,8 @@ const LandingPage = () => {
         />
       </Flex>
       {/* Bottom Half */}
-      <div className="w-full flex items-center relative h-full bg-retroRed">
-        <div className="absolute top-1/2 left-[15%] text-4xl sm:text-5xl font-bold text-retroWhite">
+      <Flex align="center" className="w-full z-20 relative h-full bg-retroRed">
+        <div className="absolute top-[calc(50%-2rem)] left-[15%] text-4xl sm:text-5xl font-bold text-retroWhite">
           EST. 1746
         </div>
         <motion.img
@@ -80,7 +92,7 @@ const LandingPage = () => {
             />
           </motion.div>
         )}
-      </div>
+      </Flex>
     </Flex>
   );
 };
