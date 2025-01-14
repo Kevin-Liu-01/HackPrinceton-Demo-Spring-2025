@@ -1,31 +1,29 @@
 "use client";
 import Image from "next/image";
 import { Flex, Box, Text } from "@radix-ui/themes";
-import { MatrixRainingLetters } from "react-mdr";
 import { MailIcon } from "lucide-react";
 
 const About = () => {
   return (
-    <Flex className="overflow-hidden w-full border-t border-red-600">
+    <Flex className="overflow-hidden w-full bg-retroBlue">
       <div
         id="about"
-        className="text-white h-full grid grid-cols-1 sm:grid-cols-2 sm:max-w-6xl sm:mx-auto w-full mt-2"
+        className="text-retroWhite h-full grid grid-cols-1 sm:grid-cols-2 sm:max-w-6xl sm:mx-auto w-full"
       >
-        <Flex direction="column" justify="center" className="p-4 ">
+        <Flex direction="column" justify="center" className="p-4 py-8">
           <Flex
             direction="column"
-            className="text-start mb-8 text-3xl sm:text-5xl text-red-600 font-extrabold gap-4"
+            className="text-start text-3xl sm:text-5xl font-extrabold gap-4"
           >
-            <span className="font-extrabold w-min whitespace-nowrap text-white text-sm border-2 border-white rounded-lg p-2">
+            <span className="font-extrabold w-min whitespace-nowrap text-sm border-2 border-retroWhite rounded-xl p-2">
               ABOUT
             </span>
-            <p>WELCOME TO</p>
-            <p>HACKPRINCETON!</p>
+            <Text className="font-funkydori text-6xl">Hacking since 1746.</Text>
           </Flex>
           <Flex
             direction="column"
             gap="4"
-            className="text-xs mr-4 sm:text-base font-[family-name:var(--font-geist-mono)]"
+            className="text-xs mr-4 sm:text-base"
           >
             <Text>
               {"At HackPrinceton, you'll meet "}
@@ -52,9 +50,9 @@ const About = () => {
               <p className="mt-2">
                 <a
                   href="mailto:team@hackprinceton.com"
-                  className="bg-red-600/20 w-min gap-2 whitespace-nowrap flex items-center hover:bg-red-600/50 transition-all hover:underline px-4 py-2 rounded-xl font-bold"
+                  className="bg-red-600/40 w-min gap-2 whitespace-nowrap flex items-center hover:bg-retroRed/60 transition-all hover:underline px-4 py-2 rounded-xl font-bold"
                 >
-                  <MailIcon size={24} className="text-red-600" />
+                  <MailIcon size={24} className="text-retroRed" />
                   team@hackprinceton.com {":)"}
                 </a>
               </p>
@@ -63,19 +61,12 @@ const About = () => {
         </Flex>
         <Flex className="relative w-full h-48 sm:h-full">
           <Image
-            src="/images/HackHeist_Images/hacker.png"
-            alt="Hacker"
+            src="/images/retrohacks_images/retro_badge.png"
+            alt="badge"
             fill={true}
             className={`object-contain z-10 rounded-3xl p-10 drop-shadow-lg`}
             priority
           />
-          <Box className="h-full w-full z-[5] overflow-x-clip top-0 left-0">
-            <MatrixRainingLetters
-              key="foo-bar"
-              color="#ff0000"
-              custom_class="m-0 rotate-180 sticky top-0 p-0"
-            />
-          </Box>
         </Flex>
       </div>
     </Flex>

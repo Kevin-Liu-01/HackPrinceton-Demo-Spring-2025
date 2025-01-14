@@ -1,138 +1,47 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import MLHBanner from "./mlh";
-import { MenuIcon } from "lucide-react";
-
-interface NavbarButton {
-  name: string;
-  link: string;
-}
-
-const NavbarButton = (props: NavbarButton) => {
-  return (
-    <a
-      className="border border-red-600 font-semibold hover:bg-red-600/30 hover:scale-105 transition-all rounded-xl px-2 py-4 flex items-center justify-center"
-      href={props.link}
-    >
-      {props.name}
-    </a>
-  );
-};
+import Checkerboard from "../checkerboard";
 
 const Navbar = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrollXTop, setScrollXTop] = useState(0);
+  const [scrollXBottom, setScrollXBottom] = useState(0);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+    const updateScroll = () => {
+      setScrollXTop((prev) => prev - 0.5); // Scroll top stripe left
+      setScrollXBottom((prev) => prev + 0.5); // Scroll bottom stripe right
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    const interval = setInterval(updateScroll, 16); // Smooth animation ~60fps
+    return () => clearInterval(interval);
   }, []);
 
-  const MobileNavbarButton = (props: NavbarButton) => {
-    return (
-      <a
-        className="w-full text-xl font-semibold hover:bg-red-600/30 hover:scale-105 transition-all p-2 flex items-center justify-center"
-        href={props.link}
-        onClick={() => setIsMenuOpen(false)}
-      >
-        {props.name}
-      </a>
-    );
-  };
-
   return (
-    <nav
-      className="fixed z-50 top-0 w-full text-white"
-      style={{
-        // WebkitTransform: "translateZ(0)",
-        WebkitBackfaceVisibility: "hidden",
-        willChange: "transform",
-      }}
-    >
-      <div
-        className={`${
-          isScrolled
-            ? "bg-black border border-x-0 border-t-0 border-b-red-600 "
-            : "bg-black/10 border border-b-red-600 rounded-[2.5rem] m-4 backdrop-filter backdrop-blur-sm"
-        } relative z-20 flex items-center transition-all drop-shadow-lg h-20 duration-300 px-4 py-2`}
-        style={{
-          // WebkitTransform: "translateZ(0)",
-          WebkitBackfaceVisibility: "hidden",
-          willChange: "transform",
-        }}
-      >
-        <div
-          className={`bg-black flex h-12 w-12 overflow-hidden items-center justify-center ${
-            isScrolled ? "rounded-none" : "rounded-full"
-          }`}
-          style={{
-            // WebkitTransform: "translateZ(0)",
-            WebkitBackfaceVisibility: "hidden",
-            willChange: "transform",
-          }}
-        >
+    <nav className="fixed top-0 left-0 w-full z-50 bg-retroWhite">
+      {/* Top scrolling red stripe */}
+      <Checkerboard scrollXTop={scrollXTop} />
+
+      {/* Logo Section */}
+      <div className="my-3 flex justify-center items-center h-16 relative">
+        <div className="relative h-full">
           <img
-            src="/images/HackHeist_Images/mask.png"
-            alt="Mask"
-            className="p-2 w-auto"
+            src="/images/logos/hplogo_text.png"
+            alt="Hack Princeton"
+            className="relative h-full z-20"
           />
+          <span className="z-20 absolute top-1/4 right-2 transform -translate-y-1/2 text-retroRed font-bold">
+            spring 2025
+          </span>
         </div>
-        <div className="flex items-center text-white text-xl ml-4 font-bold relative">
-          HackPrinceton{" "}
-          {/* <span className="ml-2 bg-yellow-400 text-red-600 text-xs rounded-xl px-2 py-1 font-[family-name:var(--font-geist-mono)]">
-            DEMO
-          </span> */}
-        </div>
-
-        {/* Web navigation */}
-        <div className="hidden sm:grid mx-auto grid-cols-6 justify-center items-center gap-4 text-sm">
-          <NavbarButton name="Home" link="#home" />
-          <NavbarButton name="About" link="#about" />
-          <NavbarButton name="Tracks" link="#tracks" />
-          <NavbarButton name="FAQ" link="#faq" />
-          <NavbarButton name="Sponsors" link="#sponsors" />
-          <NavbarButton name="Resources" link="#resources" />
-          <MLHBanner />
-        </div>
-
-        {/* Hamburger Button for mobile */}
-        <div className="flex my-auto sm:hidden ml-auto">
-          <button
-            className="text-white"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            <MenuIcon className="h-6 w-6" />
-          </button>
-        </div>
-        {/* Mobile Banner */}
-        <div className="absolute transition-all bottom-0 right-0 w-full sm:hidden inline">
-          <MLHBanner />
-        </div>
+        <div className="h-1 z-10 mt-6 bg-retroRed absolute w-full"></div>
+      </div>
+      <div className="absolute transition-all top-0 right-0 w-full inline">
+        <MLHBanner />
       </div>
 
-      {/* Mobile Navigation Menu */}
-      <div
-        className={`${
-          isMenuOpen ? "translate-y-0" : "translate-y-[-100%]"
-        } overflow-hidden z-10 h-[calc(100vh+7rem)] mt-[-7rem] bg-black/90 absolute w-full transition-all duration-300`}
-      >
-        <div className="flex mt-[7rem] flex-col items-center text-white pt-6 gap-4 text-sm">
-          <MobileNavbarButton name="Home" link="#home" />
-          <MobileNavbarButton name="About" link="#about" />
-          <MobileNavbarButton name="Tracks" link="#tracks" />
-          <MobileNavbarButton name="FAQ" link="#faq" />
-          <MobileNavbarButton name="Sponsors" link="#sponsors" />
-          <MobileNavbarButton name="Resources" link="#resources" />
-        </div>
-      </div>
+      {/* Bottom scrolling red stripe */}
+      <Checkerboard scrollXTop={scrollXBottom} />
     </nav>
   );
 };

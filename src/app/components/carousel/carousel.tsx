@@ -4,7 +4,7 @@ import { useRef, useState } from "react";
 import { Canvas, useFrame, useThree } from "@react-three/fiber";
 import {
   Image,
-  Environment,
+  // Environment,
   ScrollControls,
   useScroll,
   useTexture,
@@ -12,6 +12,8 @@ import {
 } from "@react-three/drei";
 import { easing } from "maath";
 import "../../utils/util";
+import { Flex, Box } from "@radix-ui/themes";
+import Checkerboard from "../checkerboard";
 
 const SiteURLS = [
   { name: "Home", color: "bg-red-100", link: "/images/promo1.jpg" },
@@ -24,22 +26,35 @@ const SiteURLS = [
   { name: "Register", color: "bg-red-700", link: "/images/promo8.webp" },
 ];
 
-const LandingPage = () => {
+const CarouselComponent = () => {
   return (
-    <main
-      id="home"
-      className="scroll-smooth h-screen w-full gap-8 items-center sm:items-start text-white"
-    >
-      <Canvas camera={{ position: [0, 0, 100], fov: 15 }}>
-        <fog attach="fog" args={["#a79", 8.5, 12]} />
-        <ScrollControls pages={4}>
-          <Rig rotation={[0, 0, 0.15]}>
-            <Carousel />
-          </Rig>
-          <Banner position={[0, -0.15, 0]} />
-        </ScrollControls>
-        <Environment preset="dawn" background blur={0.5} />
-      </Canvas>
+    <main id="home" className="h-screen w-full py-8 text-retroRed bg-retroRed">
+      <Flex
+        justify="center"
+        className="flex-col relative bg-gradient-to-br from-retroWhite to-pink-200 overflow-hidden mx-auto scroll-smooth rounded-3xl h-full w-[90%]"
+      >
+        <Checkerboard scrollXTop={0} />
+
+        <Box className="absolute top-0 font-funkydori mt-8 text-5xl w-full font-bold text-center p-4">
+          See You Soon!
+        </Box>
+        <Canvas camera={{ position: [0, 0, 100], fov: 15 }}>
+          <fog attach="fog" args={["#a79", 8.5, 12]} />
+          <ScrollControls pages={4} infinite>
+            <Rig rotation={[0, 0, 0.15]}>
+              <Carousel />
+            </Rig>
+            <Banner position={[0, -0.15, 0]} />
+          </ScrollControls>
+          {/* <Environment preset="dawn" background blur={0.5} /> */}
+        </Canvas>
+        <img
+          src="/images/logos/logo_circle.png"
+          alt="HPLogo"
+          className="absolute bottom-8 left-4 px-2 h-32 w-auto"
+        />
+        <Checkerboard scrollXTop={0} />
+      </Flex>
     </main>
   );
 };
@@ -119,9 +134,11 @@ function Card({ url, name, ...props }) {
           ref={textRef}
           position={[0, 0.6, 0]} // Position above the card
           fontSize={0.1}
-          color="white"
+          color="#BF3131"
           anchorX="center"
           anchorY="middle"
+          fontWeight={600}
+          // font="https://use.typekit.net/vxq6req.css"
         >
           {name}
         </Text>
@@ -155,4 +172,4 @@ function Banner(props) {
   );
 }
 
-export default LandingPage;
+export default CarouselComponent;

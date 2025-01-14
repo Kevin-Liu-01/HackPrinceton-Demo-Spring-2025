@@ -1,10 +1,13 @@
 import { Box, Flex } from "@radix-ui/themes";
 import Image from "next/image";
 import { InstagramIcon, LinkedinIcon } from "lucide-react";
+import Checkerboard from "./checkerboard";
 
 const Footer = () => {
   return (
-    <footer className="relative h-full w-full bg-black border-t border-red-600">
+    <footer className="relative h-full w-full bg-retroWhite text-retroBlue">
+      <Checkerboard scrollXTop={0} />
+
       <Flex
         align="center"
         justify="center"
@@ -12,26 +15,22 @@ const Footer = () => {
         className="max-w-6xl mx-auto py-8 "
       >
         <Image
-          src="/images/HackHeist_Images/mask.png"
-          alt="Mask"
+          src="/images/logos/hplogo.png"
+          alt="HPLogo"
           width={0}
           height={0}
           sizes="100vw"
           className="px-2 h-16 w-auto"
         />
-        <Flex
-          direction="column"
-          gap="2"
-          className="text-white text-lg whitespace-nowrap"
-        >
-          <Box>© 2024 HackPrinceton</Box>
+        <Flex direction="column" gap="2" className="text-lg whitespace-nowrap">
+          <Box>© 2025 HackPrinceton</Box>
           <Flex gap="4" align="center" className="transition-all">
             <span className="text-xs">FOLLOW OUR SOCIALS:</span>
             <a
               href="https://www.instagram.com/hackprinceton/"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-red-600 transition-all"
+              className="hover:text-retroRed transition-all"
             >
               <InstagramIcon />
             </a>
@@ -39,7 +38,7 @@ const Footer = () => {
               href="https://www.linkedin.com/company/hackprinceton/"
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-red-600 transition-all"
+              className="hover:text-retroRed transition-all"
             >
               <LinkedinIcon />
             </a>
@@ -60,6 +59,7 @@ const Footer = () => {
           </Flex> */}
         </Flex>
       </Flex>
+      <Checkerboard scrollXTop={0} />
     </footer>
   );
 };
