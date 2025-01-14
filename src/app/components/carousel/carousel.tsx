@@ -16,14 +16,14 @@ import { Flex, Box } from "@radix-ui/themes";
 import Checkerboard from "../checkerboard";
 
 const SiteURLS = [
-  { name: "Home", color: "bg-red-100", link: "/images/promo1.jpg" },
-  { name: "About", color: "bg-red-200", link: "/images/promo2.jpg" },
-  { name: "Tracks", color: "bg-red-300", link: "/images/promo3.jpg" },
-  { name: "FAQ", color: "bg-[#f78f8f]", link: "/images/promo4.jpg" },
-  { name: "Sponsors", color: "bg-red-400", link: "/images/promo5.jpg" },
-  { name: "Resources", color: "bg-red-500", link: "/images/promo6.jpg" },
-  { name: "Contact", color: "bg-red-600", link: "/images/promo7.jpg" },
-  { name: "Register", color: "bg-red-700", link: "/images/promo8.webp" },
+  { name: "Collaborate", color: "bg-red-100", link: "/images/promo1.jpg" },
+  { name: "And", color: "bg-red-200", link: "/images/promo2.jpg" },
+  { name: "Build", color: "bg-red-300", link: "/images/promo3.jpg" },
+  { name: "Out", color: "bg-[#f78f8f]", link: "/images/promo4.jpg" },
+  { name: "Brilliant", color: "bg-red-400", link: "/images/promo5.jpg" },
+  { name: "Innovative", color: "bg-red-500", link: "/images/promo6.jpg" },
+  { name: "Impactful", color: "bg-red-600", link: "/images/promo7.jpg" },
+  { name: "Ideas", color: "bg-red-700", link: "/images/promo8.webp" },
 ];
 
 const CarouselComponent = () => {
@@ -31,7 +31,7 @@ const CarouselComponent = () => {
     <main id="home" className="h-screen w-full py-8 text-retroRed bg-retroRed">
       <Flex
         justify="center"
-        className="flex-col relative bg-gradient-to-br from-retroWhite to-pink-200 overflow-hidden mx-auto scroll-smooth rounded-3xl h-full w-[90%]"
+        className="flex-col relative bg-gradient-to-br no-scrollbar from-retroWhite to-pink-200 overflow-hidden mx-auto scroll-smooth rounded-3xl h-full w-[90%]"
       >
         <Checkerboard scrollXTop={0} />
 
