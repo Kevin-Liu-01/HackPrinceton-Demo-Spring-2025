@@ -14,6 +14,7 @@ import { easing } from "maath";
 import "../../utils/util";
 import { Flex, Box } from "@radix-ui/themes";
 import Checkerboard from "../checkerboard";
+import { MouseIcon } from "lucide-react";
 
 const SiteURLS = [
   { name: "Collaborate", color: "bg-red-100", link: "/images/promo1.jpg" },
@@ -34,7 +35,6 @@ const CarouselComponent = () => {
         className="flex-col relative bg-gradient-to-br no-scrollbar from-retroWhite to-pink-200 overflow-hidden mx-auto scroll-smooth rounded-3xl h-full w-[90%]"
       >
         <Checkerboard scrollXTop={0} />
-
         <Box className="absolute top-0 font-funkydori mt-8 text-5xl w-full font-bold text-center p-4">
           See You Soon!
         </Box>
@@ -53,6 +53,13 @@ const CarouselComponent = () => {
           alt="HPLogo"
           className="absolute bottom-8 left-4 px-2 h-32 w-auto"
         />
+        <Flex
+          align="center"
+          className="flex-col animate-pulse text-retroBlue absolute bottom-8 right-4 px-2 w-auto"
+        >
+          <MouseIcon className="h-8 w-8 animate-bounce" />
+          <div>Try scrolling!</div>
+        </Flex>
         <Checkerboard scrollXTop={0} />
       </Flex>
     </main>

@@ -1,11 +1,14 @@
 "use client";
 import React, { useEffect, useState } from "react";
+import { Flex } from "@radix-ui/themes";
+import { MenuIcon, XIcon } from "lucide-react";
 import MLHBanner from "./mlh";
 import Checkerboard from "../checkerboard";
 
 const Navbar = () => {
   const [scrollXTop, setScrollXTop] = useState(0);
   const [scrollXBottom, setScrollXBottom] = useState(0);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const updateScroll = () => {
@@ -17,28 +20,89 @@ const Navbar = () => {
     return () => clearInterval(interval);
   }, []);
 
+  const navbarButtons = [
+    { label: "Apply", href: "https://my.hackprinceton.com/login" },
+    { label: "About", href: "#about" },
+  ];
+
   return (
     <nav className="fixed top-0 left-0 w-full z-50 bg-retroWhite">
       {/* Top scrolling red stripe */}
       <Checkerboard scrollXTop={scrollXTop} />
 
       {/* Logo Section */}
-      <div className="my-3 flex justify-center items-center h-16 relative">
-        <div className="relative h-full">
-          <img
-            src="/images/logos/hplogo_text.png"
-            alt="Hack Princeton"
-            className="relative h-full z-20"
-          />
-          <span className="z-20 absolute top-1/4 right-2 transform -translate-y-1/2 text-retroRed font-bold">
-            spring 2025
-          </span>
+      <Flex justify="center" align="center" className="w-full relative">
+        <Flex
+          align="center"
+          className="z-20 my-3 max-w-7xl w-auto px-8 h-16 relative"
+        >
+          <div className="relative h-full flex-1 flex items-center">
+            <img
+              src="/images/logos/hplogo_text.png"
+              alt="HackPrinceton Logo"
+              className="relative h-full z-20"
+            />
+            <span className="z-20 absolute top-1/4 right-2 transform -translate-y-1/2 text-retroRed font-bold">
+              spring 2025
+            </span>
+          </div>
+
+          {/* Hamburger Menu for Mobile */}
+          <div className="lg:hidden ml-4 bg-retroWhite border-2 border-retroRed rounded-lg p-1 flex items-center">
+            <button
+              onClick={() => setIsMenuOpen((prev) => !prev)}
+              className="text-retroRed focus:outline-none"
+            >
+              {isMenuOpen ? (
+                <XIcon className="w-6 h-6" />
+              ) : (
+                <MenuIcon className="w-6 h-6" />
+              )}
+            </button>
+          </div>
+
+          {/* Navbar Buttons for Desktop */}
+          <div className="hidden lg:flex ml-8">
+            {navbarButtons.map((button, index) => (
+              <a
+                key={index}
+                href={button.href}
+                className="border-b-4 hover:bg-yellow-100 hover:scale-[1.05] transition-all border-t-2 border-retroRed rounded-xl py-1 px-2 text-retroRed bg-retroWhite font-bold text-lg hover:text-retroRed mx-2"
+              >
+                {button.label}
+              </a>
+            ))}
+          </div>
+        </Flex>
+
+        {/* Mobile Dropdown Menu */}
+        {isMenuOpen && (
+          <div className="lg:hidden z-10 bg-retroWhite w-full absolute top-16 left-0 shadow-lg transition-all">
+            <Flex align="center" className="py-4 flex-col">
+              {navbarButtons.map((button, index) => (
+                <a
+                  key={index}
+                  href={button.href}
+                  className="block py-2 text-xl px-4 text-retroRed font-bold hover:bg-yellow-100 hover:scale-[1.05] transition-all"
+                >
+                  {button.label}
+                </a>
+              ))}
+            </Flex>
+            <Checkerboard scrollXTop={scrollXBottom} />
+          </div>
+        )}
+        <div className="absolute z-[-5] transition-all top-[6.25rem] right-0 w-full inline  sm:hidden">
+          <MLHBanner />
         </div>
+
+        {/* Red stripe */}
         <div className="h-1 z-10 mt-6 bg-retroRed absolute w-full"></div>
-      </div>
-      <div className="absolute transition-all top-0 right-0 w-full inline">
-        <MLHBanner />
-      </div>
+
+        <div className="absolute transition-all top-0 right-0 w-full hidden sm:inline">
+          <MLHBanner />
+        </div>
+      </Flex>
 
       {/* Bottom scrolling red stripe */}
       <Checkerboard scrollXTop={scrollXBottom} />
