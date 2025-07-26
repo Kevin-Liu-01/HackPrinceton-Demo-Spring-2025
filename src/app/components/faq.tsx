@@ -3,19 +3,18 @@ import { Box, Flex } from "@radix-ui/themes";
 // import { MatrixRainingLetters } from "react-mdr";
 import { ChevronDown, MessageCircleQuestionIcon } from "lucide-react";
 import { useState } from "react";
-import Checkerboard from "./checkerboard";
 
 const FaqItem = ({ question, answer }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <Box className="border-b border-gray-600">
+    <Box className="border-b font-averia border-gray-600">
       <button
-        className="w-full mb-2 flex justify-between hover:bg-retroRed/30 rounded-xl items-center p-4 text-left text-lg font-medium text-white focus:outline-none"
+        className="w-full mb-2 flex justify-between hover:bg-coffeeBrown/60 rounded-xl items-center p-4 text-left text-lg font-medium text-white focus:outline-none"
         onClick={() => setIsOpen(!isOpen)}
       >
         <Flex align="center" gap="4">
-          <MessageCircleQuestionIcon size={24} className="text-retroRed" />
+          <MessageCircleQuestionIcon size={24} className="text-coffeeWhite" />
           {question}
         </Flex>
         <ChevronDown
@@ -84,16 +83,8 @@ const Faq = () => {
       id="faq"
       gap="4"
       align="center"
-      className="flex-col relative text-white h-full overflow-clip w-full bg-retroBlue"
+      className="flex-col relative py-8 text-white h-full overflow-clip w-full bg-coffeeGreen"
     >
-      <Checkerboard scrollXTop={0} />
-      <div className="absolute z-[5] h-full w-full top-0 left-0">
-        {/* <MatrixRainingLetters
-          key="foo-bar"
-          color="#ff0000"
-          custom_class="m-0 sticky w-full top-0 p-0"
-        /> */}
-      </div>
       <Flex
         direction="column"
         justify="center"
@@ -102,12 +93,12 @@ const Faq = () => {
         <Flex
           direction="column"
           align="center"
-          className="mb-8 text-3xl text-center sm:text-5xl text-retroRed font-extrabold gap-4"
+          className="mb-8 text-3xl font-averia text-center sm:text-5xl font-extrabold gap-4"
         >
-          <span className="bg-retroBlue font-extrabold w-min whitespace-nowrap text-white text-sm border-2 border-white rounded-lg p-2">
+          <span className="bg-coffeebrown font-extrabold w-min whitespace-nowrap text-coffeeWhite text-sm border-2 border-coffeeWhite rounded-lg p-2">
             FAQ
           </span>
-          <p className="text-retroRed">FREQUENTLY ASKED QUESTIONS</p>
+          <p className="text-coffeeWhite">FREQUENTLY ASKED QUESTIONS</p>
         </Flex>
         <Flex
           direction="column"
@@ -123,7 +114,6 @@ const Faq = () => {
           ))}
         </Flex>
       </Flex>
-      <Checkerboard scrollXTop={0} />
     </Flex>
   );
 };
