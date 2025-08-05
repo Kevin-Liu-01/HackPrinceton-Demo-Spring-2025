@@ -22,7 +22,7 @@ const About = () => {
             <span className="font-extrabold w-min whitespace-nowrap text-sm border-2 border-coffeeGreen rounded-xl p-2">
               ABOUT
             </span>
-            <Text className=" text-4xl lg:text-5xl">Hacking since 1746.</Text>
+            <Text className=" text-4xl lg:text-5xl">Hacking since 2010.</Text>
           </Flex>
           <Flex
             direction="column"
