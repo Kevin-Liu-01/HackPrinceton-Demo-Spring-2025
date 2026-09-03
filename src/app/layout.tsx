@@ -3,20 +3,13 @@ import type { Metadata } from "next";
 import "./globals.css";
 import "@radix-ui/themes/styles.css";
 import { Theme } from "@radix-ui/themes";
-import { DM_Serif_Display, Averia_Serif_Libre } from "next/font/google";
+import { Young_Serif } from "next/font/google";
 
-const dmserifdisplay = DM_Serif_Display({
+const youngserif = Young_Serif({
   subsets: ["latin"],
   display: "swap",
-  variable: "--font-dm-serif-display",
+  variable: "--font-young-serif",
   weight: ["400"],
-});
-
-const averiaSerifLibre = Averia_Serif_Libre({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-averia-serif-libre",
-  weight: ["300", "400"],
 });
 
 // const geistSans = localFont({
@@ -32,7 +25,7 @@ const averiaSerifLibre = Averia_Serif_Libre({
 
 export const metadata: Metadata = {
   title: "HackPrinceton",
-  description: "HackPrinceton Fall 2025",
+  description: "HackPrinceton Spring 2025",
 };
 
 export default function RootLayout({
@@ -43,9 +36,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <link rel="stylesheet" href="https://use.typekit.net/vxq6req.css"></link>
-      <body
-        className={`${dmserifdisplay.variable} ${averiaSerifLibre.variable} antialiased`}
-      >
+      <body className={`${youngserif.variable} antialiased`}>
         <Theme>{children}</Theme>
       </body>
     </html>

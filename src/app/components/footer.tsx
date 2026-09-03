@@ -1,18 +1,13 @@
 import { Box, Flex } from "@radix-ui/themes";
 import Image from "next/image";
 import { InstagramIcon, LinkedinIcon } from "lucide-react";
-import Scroll from "./scroll";
+import Checkerboard from "./checkerboard";
 
 const Footer = () => {
   return (
-    <footer className="relative h-full w-full bg-coffeeWhite text-coffeeGreen border-t-2 border-coffeeBg">
-      <Scroll
-        bgImage="/images/coffeehacks_images/cups.png"
-        tileSize={"20rem"}
-        speed={0.5}
-        direction="down"
-        className="absolute z-10 h-full w-full opacity-10 rounded-xl overflow-hidden z-5"
-      />
+    <footer className="relative h-full w-full bg-retroWhite text-retroBlue">
+      <Checkerboard scrollXTop={0} />
+
       <Flex
         align="center"
         justify="center"
@@ -27,11 +22,7 @@ const Footer = () => {
           sizes="100vw"
           className="px-2 h-16 w-auto"
         />
-        <Flex
-          direction="column"
-          gap="2"
-          className="text-lg font-averia font-semibold whitespace-nowrap"
-        >
+        <Flex direction="column" gap="2" className="text-lg whitespace-nowrap">
           <Box>© 2025 HackPrinceton</Box>
           <Flex gap="4" align="center" className="transition-all">
             <span className="text-xs">FOLLOW OUR SOCIALS:</span>
@@ -68,6 +59,7 @@ const Footer = () => {
           </Flex> */}
         </Flex>
       </Flex>
+      <Checkerboard scrollXTop={0} />
     </footer>
   );
 };

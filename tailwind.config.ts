@@ -12,10 +12,6 @@ const config: Config = {
         retroRed: "#BF3131",
         retroWhite: "#F1EAD1",
         retroBlue: "#0E273C",
-        coffeeBg: "#f4ead6",
-        coffeeWhite: " #efdfbd",
-        coffeeBrown: "#3b2710",
-        coffeeGreen: "#1e4027",
       },
       cursor: {
         default: "url(/images/logos/cursorsmall.png) 8 8, auto",
@@ -32,8 +28,7 @@ const config: Config = {
         "fade-in": "fade-in 5s ease 1s forwards",
       },
       fontFamily: {
-        dmSerif: ["var(--font-dm-serif-display)", "sans-serif"],
-        averia: ["var(--font-averia-serif-libre)", "sans-serif"],
+        funkydori: ['"funkydori"', "sans-serif"], // Define font family
       },
       fontWeight: {
         regular: "400", // Optionally specify font weight name
